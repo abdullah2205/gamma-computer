@@ -1,0 +1,41 @@
+body{
+    font-family: 'Ubuntu', sans-serif;
+    background-color: white;
+}
+
+.banner img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.pilih-brand img {
+    max-height: 50px;
+    text-align: center;
+}
+
+.pilih-brand .card {
+    height: 100%;
+    border-radius: 15px;
+}
+
+.products .card {
+    border-radius: 15px;
+}
+
+.breadcrumb {
+    background-color: transparent;
+    padding: 0;
+}
+
+.breadcrumb .active {
+    font-weight: bold;
+    color: black;
+}
+
+.btn-dark {
+    border-radius: 10px;
+}
+
+.jumbotron {
+    border-radius: 15px;
+}
