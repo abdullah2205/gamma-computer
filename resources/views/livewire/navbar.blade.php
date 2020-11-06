@@ -16,14 +16,14 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            List Product
+                            List Laptop
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @foreach($brands as $brand)
-                                <a class="dropdown-item" href="#"> {{ $brand -> nama }}</a>
+                                <a class="dropdown-item" href=" {{ route('products.brand', $brand->id) }} "> {{ $brand -> nama }}</a>
                             @endforeach
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('products') }}">Semua Brand</a> 
+                            <a class="dropdown-item" href="{{ route('products') }}">Semua Laptop</a> 
                             <!-- pemanggilan route menggunakan penamaan dari web.php -->
                         </div>
                     </li>
