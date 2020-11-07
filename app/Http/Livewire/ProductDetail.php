@@ -65,6 +65,8 @@ class ProductDetail extends Component
             'total_harga' => $total_harga
         ]);
 
+        $this->emit('inCart');
+        
         session()->flash('message', 'Success add to Cart');
         return redirect()->back();
     }

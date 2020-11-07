@@ -32,6 +32,14 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Cart <i class="fas fa-shopping-bag"></i>
+                            @if($order_qty != 0)
+                            <span class="badge badge-danger"> {{ $order_qty }} </span>
+                            @endif
+                        </a>
+                    </li>
                     @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
