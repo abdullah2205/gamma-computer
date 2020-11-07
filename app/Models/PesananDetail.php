@@ -9,6 +9,13 @@ class PesananDetail extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'jumlah_pesanan',
+        'total_harga',
+        'product_id',
+        'pesanan_id'
+    ];
+
     public function pesanans()
     {
         return $this->belongsTo(Pesanan::class, 'pesanan_id', 'id'); //tabel pesanan_detail terkait dengan pesanan

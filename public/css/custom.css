@@ -39,3 +39,9 @@ body{
 .jumbotron {
     border-radius: 15px;
 }
+
+.gambar-product {
+    background-color: #e8e8e8;
+    border-radius: 20px;
+    border-width: 0;
+}
