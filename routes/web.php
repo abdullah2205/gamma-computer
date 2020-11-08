@@ -19,3 +19,4 @@ Route::livewire('/', 'home')->name('home'); // untuk pemanggilan {{ route }}
 Route::livewire('/products', 'product-index')->name('products'); // untuk pemanggilan {{ products }}
 Route::livewire('/products/brand/{brandId}', 'product-brand')->name('products.brand'); // untuk pemanggilan {{ products-brand }}
 Route::livewire('/products/{id}', 'product-detail')->name('products.detail'); // untuk pemanggilan {{ products-detail }}
+Route::livewire('/cart', 'cart')->name('cart'); //untuk pemanggilan {{ keranjang }}

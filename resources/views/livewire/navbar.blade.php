@@ -23,7 +23,7 @@
                                 <a class="dropdown-item" href=" {{ route('products.brand', $brand->id) }} "> {{ $brand -> nama }}</a>
                             @endforeach
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('products') }}">Semua Laptop</a> 
+                            <a class="dropdown-item" href="{{ route('products') }}">Semua Laptop</a>
                             <!-- pemanggilan route menggunakan penamaan dari web.php -->
                         </div>
                     </li>
@@ -33,8 +33,8 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Cart <i class="fas fa-shopping-bag"></i>
+                        <a class="nav-link" href="{{ route('cart') }}">
+                            Cart <i class="fas fa-shopping-cart"></i>
                             @if($order_qty != 0)
                             <span class="badge badge-danger"> {{ $order_qty }} </span>
                             @endif

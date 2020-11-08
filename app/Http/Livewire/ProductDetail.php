@@ -23,10 +23,6 @@ class ProductDetail extends Component
 
     public function addToCard()
     {
-        // $this->validate([
-        //     'order_qty' => 'required|min:1'
-        // ]);
-
         //validasi jika belum login
         if(!Auth::user()) {
             return redirect()->route('login');

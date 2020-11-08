@@ -21,7 +21,7 @@ class PesananDetail extends Model
         return $this->belongsTo(Pesanan::class, 'pesanan_id', 'id'); //tabel pesanan_detail terkait dengan pesanan
     }
     
-    public function products()
+    public function product() //disini errornya, tapi sudah fix Alhamdulillah
     {
         return $this->belongsTo(Product::class, 'product_id', 'id'); //tabel pesanan_detail terkait dengan product
     }
