@@ -30,18 +30,16 @@
     <section class="products mb-4">
         <div class="row mt-4">
             @foreach($products as $product)
-            <div class="col-md-3 mb-4 d-flex">
-                <div class="card border-secondary flex-fill">
+            <div class="col-md-2 mb-4 d-flex">
+                <div class="card flex-fill">
                     <div class="card-body text-center">
-                        <img src="{{ url('assets/laptop') }}/{{ $product->image }}" class="img-fluid">
+                        <img src="{{ url('assets/laptop') }}/{{ $product->image }}" class="img-fluid" width="160">
                         <div class="row mt-2">
                             <div class="col-md-12">
-                                <h5><strong>{{ $product->type }}</strong> </h5>
-                                <h6> {{ $product -> os }}</h6>
+                                <h6><strong>{{ $product->type }}</strong> </h6>
                                 <h6> {{ $product -> processor }}</h6>
-                                <h6> {{ $product -> memory }}</h6>
                                 <hr>
-                                <h5>Rp. {{ number_format($product->price) }}</h5>
+                                <h6 class="text-primary"><strong>Rp. {{ number_format($product->price) }}</strong></h6>
                             </div>
                         </div>
                         <div class="row mt-2">

@@ -10,7 +10,6 @@
             </nav>
         </div>
     </div>
-
     <div class="row">
         <div class="col-md-12">
             @if(session()->has('message'))
@@ -20,7 +19,6 @@
             @endif
         </div>
     </div>
-
     <div class="row">
         <div class="col-md-6">
             <div class="card gambar-product border-secondary">
@@ -49,7 +47,7 @@
                                 <td> Brand </td>
                                 <td>:</td>
                                 <td>
-                                    <img src="{{ url('assets\brand') }}/{{ $product->brand -> logo }}" class="img-fluid" width=60>
+                                    <img src="{{ url('assets\brand') }}/{{ $product->brand['logo'] }}" class="img-fluid" width=60>
                                 </td>
                             </tr>
                             <tr>
@@ -105,9 +103,9 @@
                                 <td> Order Quantity </td>
                                 <td>:</td>
                                 <td>
-                                    <input id="order_qty" type="number" 
+                                    <input wire:model="order_qty" id="order_qty" type="number" min="1"
                                     class="form-control @error('order_qty') is-invalid @enderror"
-                                    wire:model="order_qty" value="{{ old('order_qty') }}" required autofocus>
+                                     value="{{ old('order_qty') }}" autofocus>
 
                                     @error('order_qty')
                                     <span class="invalid-feedback" role="alert">

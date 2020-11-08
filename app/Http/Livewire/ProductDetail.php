@@ -23,6 +23,10 @@ class ProductDetail extends Component
 
     public function addToCard()
     {
+        $this->validate([
+            'order_qty' => 'required'
+        ]);
+
         //validasi jika belum login
         if(!Auth::user()) {
             return redirect()->route('login');
@@ -38,7 +42,7 @@ class ProductDetail extends Component
         {
             Pesanan::create([
                 'user_id' => Auth::user()->id,
-                'kode_unik' => mt_rand(100, 999),
+                'kode_unik' => mt_rand(100, 999), //untuk membuat kode unik
                 'total_harga' => $total_harga,
                 'status' => 0,
             ]);

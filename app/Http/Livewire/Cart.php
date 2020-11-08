@@ -10,37 +10,36 @@ use Illuminate\Support\Facades\Auth; // import dulu gaes
 class Cart extends Component
 {
     protected $pesanan;
-    protected $pesanan_details = [];
+    protected $pesanan_details = []; //berbentuk array
     
     public function destroy($id)
     {
-        $pesanan_detail = PesananDetail::find($id);
-           if(!empty($pesanan_detail)) {
-           
-               $pesanan = Pesanan::where('id', $pesanan_detail->pesanan_id)->first();
-               $jumlah_pesanan_detail = PesananDetail::where('pesanan_id', $pesanan->id)->count();
-               if($jumlah_pesanan_detail == 1) 
-               {
-                   $pesanan->delete();
-               }else {
-                   $pesanan->total_harga = $pesanan->total_harga-$pesanan_detail->total_harga;
-                   $pesanan->update();
-               }
+        $pesanan_detail = PesananDetail::find($id); //mencari id pesanan_detail
 
-               $pesanan_detail->delete();
-           }
+        if(!empty($pesanan_detail)) {
+            $pesanan = Pesanan::where('id', $pesanan_detail->pesanan_id)->first();
+            $jumlah_pesanan_detail = PesananDetail::where('pesanan_id', $pesanan->id)->count(); //hitung pesanan_id yang terhubung pada pesanan_id
 
-           $this->emit('inCart');
+            if($jumlah_pesanan_detail == 1) {
+                $pesanan->delete();
+            }else {
+                $pesanan->total_harga = $pesanan->total_harga-$pesanan_detail->total_harga;
+                $pesanan->update();
+            }
 
-           session()->flash('message', 'Order Deleted');
+            $pesanan_detail->delete();
+        }
+
+        $this->emit('inCart');
+
+        session()->flash('message', 'Order Deleted');
     }
 
     public function render()
     {
-        if(Auth::user()) {
+        if(Auth::user()) { //jika login ambil pesanan dengan user_id
             $this->pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status', 0)->first();
-            if($this->pesanan)
-            {
+            if($this->pesanan) {
                 $this->pesanan_details = PesananDetail::where('pesanan_id', $this->pesanan->id)->get();
             }
         }
