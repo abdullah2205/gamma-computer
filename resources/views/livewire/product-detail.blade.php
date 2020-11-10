@@ -13,9 +13,9 @@
     <div class="row">
         <div class="col-md-12">
             @if(session()->has('message'))
-            <div class="alert alert-success">
-                {{  session('message') }}
-            </div>
+                <div class="alert alert-success">
+                    {{  session('message') }}
+                </div>
             @endif
         </div>
     </div>
@@ -108,9 +108,9 @@
                                      value="{{ old('order_qty') }}" autofocus>
 
                                     @error('order_qty')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                     @enderror
                                 </td>
                             </tr>

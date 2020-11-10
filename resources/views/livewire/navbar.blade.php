@@ -27,6 +27,9 @@
                             <!-- pemanggilan route menggunakan penamaan dari web.php -->
                         </div>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('history') }}">History</a>
+                    </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -36,7 +39,7 @@
                         <a class="nav-link" href="{{ route('cart') }}">
                             Cart <i class="fas fa-shopping-cart"></i>
                             @if($order_qty != 0)
-                            <span class="badge badge-danger"> {{ $order_qty }} </span>
+                                <span class="badge badge-danger"> {{ $order_qty }} </span>
                             @endif
                         </a>
                     </li>

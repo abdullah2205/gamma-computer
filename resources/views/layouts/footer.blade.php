@@ -1,4 +1,4 @@
-<footer class=" text-white">
+<footer class="text-white">
     <div class="footer-atas text-center text-md-left">
         <div class="container">
             <div class="row">
@@ -46,7 +46,7 @@
     <div class="footer-bawah p-3">
         <div class="row">
             <div class="col text-center">
-                Copyright @2020 Kuuhaku
+                Copyright © 2020 Gamma Microtech - All rights Reserved
             </div>
         </div>
     </div>

@@ -20,8 +20,11 @@ body{
     background-color: rgb(16, 111, 253);
 }
 
-.banner img {
-    width: 100%;
+.slide{
+    border-radius: 15px;
+}
+
+.history{
     border-radius: 15px;
 }
 
