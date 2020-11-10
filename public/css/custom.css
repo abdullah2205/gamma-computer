@@ -8,6 +8,11 @@ body{
     background-color: rgb(16, 111, 253);
 }
 
+.bold {
+    font-size: medium;
+    font-weight: bold;
+}
+
 .cari{
     background-color: rgb(16, 111, 253);
 }
@@ -18,6 +23,7 @@ body{
 
 .footer-bawah{
     background-color: rgb(16, 111, 253);
+    font-weight: bold;
 }
 
 .slide{
