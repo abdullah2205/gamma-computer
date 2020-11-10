@@ -27,7 +27,7 @@
         <div id="app">
             <livewire:navbar/> <!-- Pemanggilan komponen navbar dengan livewire -->
             
-            <main class="py-4">
+            <main>
                 @yield('content')
 
                 @include('layouts.footer')

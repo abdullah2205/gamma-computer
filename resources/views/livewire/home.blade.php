@@ -10,7 +10,7 @@
     </div>
     
     {{-- BRAND --}}
-    <section class="pilih-brand mt-5">
+    <section class="pilih-brand">
         <h3><strong>Pilih Brand</strong></h3>
         <div class="row mt-4">
             @foreach($brands as $brand)
@@ -31,7 +31,7 @@
     <section class="products mt-5">
         <h3>
             <strong>Best Laptop</strong>
-            <a href="{{ route('products') }}" class="btn btn-dark float-right"><i class="fas fa-eye"></i> Lihat Semua </a>
+            <a href="{{ route('products') }}" class="btn btn-success float-right"><i class="fas fa-eye"></i> Lihat Semua </a>
         </h3>
         <div class="row mt-4">
             @foreach($products as $product)
@@ -49,7 +49,7 @@
                         </div>
                         <div class="row mt-2">
                             <div class="col-md-12">
-                                <a href="{{ route('products.detail', $product->id) }}" class="btn btn-dark btn-block"><i class="fas fa-eye"></i> Detail</a>
+                                <a href="{{ route('products.detail', $product->id) }}" class="btn btn-success btn-block"><i class="fas fa-eye"></i> Detail</a>
                             </div>
                         </div>
                     </div>

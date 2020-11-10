@@ -37,7 +37,7 @@
                 </div>
             </div>
         </div>
-        <div class="col mt-4">
+        <div class="col mt-4 mb-4">
             <h3>Shipping Information</h3>
             <hr>
             <form wire:submit.prevent="checkout">
@@ -66,5 +66,4 @@
             </form>
         </div>
     </div>
-
 </div>

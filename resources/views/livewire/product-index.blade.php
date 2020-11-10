@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row mb-2">
+    <div class="row">
         <div class="col">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -16,10 +16,10 @@
         </div>
         <div class="col-md-3">
             <div class="input-group mb-2">
-                <input wire:model="search" type="text" class="form-control" placeholder="Search . . ." aria-label="Search"
+                <input wire:model="search" type="text" class="form-control border-primary" placeholder="Search . . ." aria-label="Search"
                     aria-describedby="basic-addon1">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">
+                    <span class="input-group-text border-primary bg-primary text-white rounded-right" id="basic-addon1">
                         <i class="fas fa-search"></i>
                     </span>
                 </div>
@@ -27,7 +27,7 @@
         </div>
     </div>
 
-    <section class="products mb-4">
+    <section class="products">
         <div class="row mt-4">
             @foreach($products as $product)
             <div class="col-md-2 mb-4 d-flex">
@@ -44,7 +44,7 @@
                         </div>
                         <div class="row mt-2">
                             <div class="col-md-12">
-                                <a href="{{ route('products.detail', $product->id) }}" class="btn btn-dark btn-block"><i class="fas fa-eye"></i> Detail</a>
+                                <a href="{{ route('products.detail', $product->id) }}" class="btn btn-success btn-block"><i class="fas fa-eye"></i> Detail</a>
                             </div>
                         </div>
                     </div>

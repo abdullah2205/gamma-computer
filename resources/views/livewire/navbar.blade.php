@@ -1,5 +1,5 @@
 <div>
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow">
+    <nav class="navbar fixed-top navbar-expand-md navbar-dark shadow">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 Gamma<strong>Computer</strong>

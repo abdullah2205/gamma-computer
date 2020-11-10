@@ -1,6 +1,23 @@
 body{
     font-family: 'Ubuntu', sans-serif;
     background-color: white;
+    margin-top: 75px;
+}
+
+.navbar{
+    background-color: rgb(16, 111, 253);
+}
+
+.cari{
+    background-color: rgb(16, 111, 253);
+}
+
+.footer-atas{
+    background-color: rgb(23, 136, 250);
+}
+
+.footer-bawah{
+    background-color: rgb(16, 111, 253);
 }
 
 .banner img {
@@ -32,7 +49,7 @@ body{
     color: black;
 }
 
-.btn-dark {
+.btn {
     border-radius: 10px;
 }
 
