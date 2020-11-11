@@ -12,15 +12,19 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{ route('home') }}">Home</a>
+                        <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="{{ route('home') }}">Home</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            List Laptop
+                        <a class="nav-link dropdown-toggle
+                            @foreach($brands as $brand) 
+                                {{ Request::is('products/brand/'.$brand->id)||Request::is('products') ? 'active' : '' }}
+                            @endforeach "
+
+                            href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> List Laptop
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @foreach($brands as $brand)
-                                <a class="dropdown-item" href=" {{ route('products.brand', $brand->id) }} "> {{ $brand -> nama }}</a>
+                                <a class="dropdown-item" href="{{ route('products.brand', $brand->id) }}"> {{ $brand->nama }}</a>
                             @endforeach
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('products') }}">Semua Laptop</a>
@@ -28,7 +32,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('history') }}">History</a>
+                        <a class="nav-link {{ Request::is('history') ? 'active' : '' }}" href="{{ route('history') }}">History</a>
                     </li>
                 </ul>
 
@@ -36,7 +40,7 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('cart') }}">
+                        <a class="nav-link {{ Request::is('cart') ? 'active' : '' }}" href="{{ route('cart') }}">
                             Cart <i class="fas fa-shopping-cart"></i>
                             @if($order_qty != 0)
                                 <span class="badge badge-danger"> {{ $order_qty }} </span>
@@ -45,11 +49,11 @@
                     </li>
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link {{ Request::is('login') ? 'active' : '' }}" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="nav-link {{ Request::is('register') ? 'active' : '' }}" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @endif
                     @else
