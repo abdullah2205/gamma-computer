@@ -22,3 +22,8 @@ Route::livewire('/products/{id}', 'product-detail')->name('products.detail'); //
 Route::livewire('/cart', 'cart')->name('cart'); //untuk pemanggilan {{ keranjang }}
 Route::livewire('/checkout', 'checkout')->name('checkout'); //untuk pemanggilan {{ checkout }}
 Route::livewire('/history', 'history')->name('history'); //untuk pemanggilan {{ history }}
+
+//route dashboard untuk admin
+Route::middleware('role:admin')
+    ->get('/dashboard', function() { return view('admin/dashboard'); })
+    ->name('dashboard');
