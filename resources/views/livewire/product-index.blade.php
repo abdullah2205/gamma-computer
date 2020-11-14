@@ -34,7 +34,7 @@
                             <img src="{{ url('assets/laptop') }}/{{ $product->image }}" class="img-fluid" width="160">
                             <div class="row mt-2">
                                 <div class="col-md-12">
-                                    <h6><strong>{{ $product->type }}</strong> </h6>
+                                    <h6 class="max"><strong>{{ $product->type }}</strong> </h6>
                                     <h6> {{ $product -> processor }}</h6>
                                     <hr>
                                     <h6 class="text-primary"><strong>Rp. {{ number_format($product->price) }}</strong></h6>

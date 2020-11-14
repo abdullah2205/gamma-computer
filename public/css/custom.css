@@ -71,3 +71,10 @@ body{
     border-radius: 20px;
     border-width: 0;
 }
+
+.max {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 400px;
+}
