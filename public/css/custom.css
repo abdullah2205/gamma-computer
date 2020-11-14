@@ -78,3 +78,11 @@ body{
   text-overflow: ellipsis;
   max-width: 400px;
 }
+
+nav ul li a{
+    border-bottom: 1px solid rgb(16, 111, 253);
+}
+
+nav ul li a.active{
+    border-bottom: 1px solid white;
+}
