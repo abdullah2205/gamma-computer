@@ -35,7 +35,7 @@ body{
 }
 
 .pilih-brand img {
-    max-height: 50px;
+    max-height: 40px;
     text-align: center;
 }
 
@@ -85,4 +85,15 @@ nav ul li a{
 
 nav ul li a.active{
     border-bottom: 1px solid white;
+}
+
+.navbar-brand {
+    font-size: 25px;
+    font-style: italic;
+    font-family: 'Anton', sans-serif;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+.gambar {
+    height: 100px;
 }

@@ -51,7 +51,7 @@
         <h3><strong>Pilih Brand</strong></h3>
         <div class="row">
             @foreach($brands as $brand)
-                <div class="col-md-3 col-sm-6 mt-4">
+                <div class="col-md-2 col-sm-6 mt-4">
                     <a href=" {{ route('products.brand', $brand->id) }} ">
                         <div class="card shadow">
                             <div class="card-body text-center">
@@ -74,7 +74,7 @@
                 <div class="col-md-2 col-sm-4 mb-4 d-flex">
                     <div class="card flex-fill">
                         <div class="card-body text-center">
-                            <img src="{{ url('assets\laptop') }}/{{ $product -> image }}" class="img-fluid">
+                            <img src="{{ url('assets\laptop') }}/{{ $product -> image }}" class="gambar img-fluid">
                             <div class="row mt-2">
                                 <div class="col-md-12">
                                     <h6 class="max"><strong>{{ $product -> type }} </strong></h6>

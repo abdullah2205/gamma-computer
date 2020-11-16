@@ -1,8 +1,8 @@
 <div>
     <nav class="navbar fixed-top navbar-expand-md navbar-dark shadow">
         <div class="container bold">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                Gamma<strong>Computer</strong>
+            <a class="navbar-brand text-danger" href="{{ url('/') }}">
+                Gamma<strong> Computer</strong>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
