@@ -55,8 +55,10 @@
                                 <td>
                                     @if($pesanan->status == 1)
                                         Belum Lunas
-                                    @else
+                                    @elseif($pesanan->status == 2)
                                         Lunas
+                                    @else
+                                        Dikirim
                                     @endif
                                 </td>
                                 <td><strong>Rp. {{ number_format($pesanan->total_harga) }}</strong></td>

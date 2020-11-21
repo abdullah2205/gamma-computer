@@ -7,6 +7,9 @@ use App\Models\Pesanan; // import dulu gaes
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth; // import dulu gaes
 
+use App\Mail\CheckoutNotification; //ini
+use Illuminate\Support\Facades\Mail; //ini
+
 class Checkout extends Component
 {
     public $total_harga, $telepon, $alamat;
@@ -47,6 +50,8 @@ class Checkout extends Component
         $pesanan->update();
 
         $this->emit('inCart');
+
+        Mail::to("ma22052000@gmail.com")->send(new CheckoutNotification());// ini
 
         session()->flash('message', "Checkout Success");
 
