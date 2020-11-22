@@ -33,5 +33,15 @@ class BrandSeeder extends Seeder
             'nama' => 'Acer',
             'logo' => 'acer.png',
         ]);
+
+        DB::table('brands')->insert([
+            'nama' => 'Dell',
+            'logo' => 'dell.png'
+        ]);
+
+        DB::table('brands')->insert([
+            'nama' => 'MSI',
+            'logo' => 'msi.png',
+        ]);
     }
 }
