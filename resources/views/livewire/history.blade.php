@@ -61,7 +61,7 @@
                                         Dikirim
                                     @endif
                                 </td>
-                                <td><strong>Rp. {{ number_format($pesanan->total_harga) }}</strong></td>
+                                <td><strong>Rp. {{ number_format($pesanan->total_harga+$pesanan->kode_unik) }}</strong></td>
                             </tr>
                             @empty
                             <tr>

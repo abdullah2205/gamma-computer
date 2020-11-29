@@ -1,8 +1,8 @@
 <div>
     <nav class="navbar fixed-top navbar-expand-md navbar-dark shadow">
         <div class="container bold">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                Gamma<strong>Computer</strong>
+            <a class="navbar-brand text-danger" href="{{ url('/') }}">
+                Gamma<strong> Computer</strong>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
@@ -19,15 +19,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ Request::is('dashboard/products') ? 'active' : '' }}" href="{{ route('products.index') }}">Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ Request::is('dashboard/brands') ? 'active' : '' }}" href="{{ route('products.index') }}">Brands</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ Request::is('dashboard/pesanan') ? 'active' : '' }}" href="{{ route('products.index') }}">Pesanan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ Request::is('dashboard/pesanan-detail') ? 'active' : '' }}" href="{{ route('products.index') }}">Pesanan Detail</a>
                     </li>
                 </ul>
 
