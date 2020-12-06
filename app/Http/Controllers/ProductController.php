@@ -36,7 +36,25 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'type' => 'required',
+            'price' => 'required',
+            'brand_id' => 'required',
+            'is_ready' => 'required',
+            'color' => 'required',
+            'os' => 'required',
+            'processor' => 'required',
+            'graphics' => 'required',
+            'display' => 'required',
+            'memory' => 'required',
+            'storage' => 'required',
+            'image' => 'required'
+        ],
+        ['required' => ':attribute harus diisi']);
+
+        Product::create($request->all());
+
+        return redirect()->route('products.index')->with('success', 'Data Product tersimpan');
     }
 
     /**
@@ -58,7 +76,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['product'] = Product::find($id);
+        return view('admin/edit', $data);
     }
 
     /**

@@ -21,7 +21,13 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Data Table</div>
+                <div class="card-header">
+                    <div class="card-header">
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addModal">
+                            Add Product
+                        </button>
+                    </div>
+                </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table" style="border-collapse:collapse;">
@@ -53,8 +59,8 @@
                                     </td>
                                     <td>
                                         <form action="{{ route('products.destroy', $product->id) }}" method="post">
-                                            <a href="{{ route('products.edit', $product->id) }}">
-                                                <button type="button" class="btn btn-primary"> Ubah </button>
+                                            <a href="g" class="btn btn-primary edit">
+                                                Ubah
                                             </a>	
                                             @csrf
                                             @method('DELETE')
@@ -122,5 +128,114 @@
         </div>
     </div>
     <br>
+    <!--Add Modal -->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <form action="{{ route('products.store') }}" method="post">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Product</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                
+                    <div class="modal-body">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Type</label>
+                                    <input type="text" class="form-control" name="type" value="{{ old('type') }}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Price</label>
+                                    <input type="number" class="form-control" name="price" value="{{ old('price') }}">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Brand</label>
+                                    <input type="number" class="form-control" name="brand_id" value="{{ old('brand_id') }}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Is Ready</label>
+                                    <input type="number" class="form-control" name="is_ready" value="{{ old('is_ready') }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Color</label>
+                                    <input type="text" class="form-control" name="color" value="{{ old('color') }}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">OS</label>
+                                    <input type="text" class="form-control" name="os" value="{{ old('os') }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Processor</label>
+                                    <input type="text" class="form-control" name="processor" value="{{ old('processor') }}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Graphics</label>
+                                    <input type="text" class="form-control" name="graphics" value="{{ old('graphics') }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Display</label>
+                                    <input type="text" class="form-control" name="display" value="{{ old('display') }}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Memory</label>
+                                    <input type="text" class="form-control" name="memory" value="{{ old('memory') }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Storage</label>
+                                    <input type="text" class="form-control" name="storage" value="{{ old('storage') }}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Image</label>
+                                    <input type="text" class="form-control" name="image" value="{{ old('image') }}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button class="btn btn-success">Simpan</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- End Add Modal -->
 </div>
 @endsection

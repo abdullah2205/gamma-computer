@@ -9,6 +9,21 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'type',
+        'price',
+        'brand_id',
+        'is_ready',
+        'color',
+        'os',
+        'processor',
+        'graphics',
+        'display',
+        'memory',
+        'storage',
+        'image',
+    ];
+
     public function brand()
     {
         return $this->belongsTo(Brand::class, 'brand_id', 'id'); //tabel product terkait dengan tabel brand
