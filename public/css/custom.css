@@ -97,3 +97,15 @@ nav ul li a.active{
 .gambar {
     height: 100px;
 }
+
+.table tr {
+    cursor: pointer;
+}
+.hiddenRow {
+    padding: 0 4px !important;
+    background-color: #ebebeb;
+    font-size: 13px;
+}
+.accordian-body span{
+    color:#a2a2a2 !important;
+}

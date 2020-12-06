@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $data['products'] = Product::all();
+        $data['products'] = Product::paginate(10);
         return view('admin/product', $data);
     }
 
@@ -81,6 +81,9 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $users = Product::find($id);
+        $users->delete();
+
+        return redirect()->route('products.index')->with('success', 'Data Product telah dihapus');
     }
 }

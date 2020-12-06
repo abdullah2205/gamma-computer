@@ -24,13 +24,13 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <td>No.</td>
-                            <td width="200">Image</td>
-                            <td width="250">Type Laptop</td>
-                            <td>Price</td>
-                            <td width="100">Total Order</td>
-                            <td align="right"><strong>Total Price</strong></td>
-                            <td align="center">Action</td>
+                            <th>No.</th>
+                            <th width="200">Image</th>
+                            <th width="250">Type Laptop</th>
+                            <th>Price</th>
+                            <th width="100">Order</th>
+                            <th class="text-right"><strong>Total Price</strong></th>
+                            <th align="center">Action</th>
                         </tr>
                     </thead>
                     <tbody>

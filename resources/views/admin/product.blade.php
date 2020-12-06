@@ -19,81 +19,108 @@
     @endif
 
     <div class="row">
-        <div class="col-md-12 mb-4">
-            <div class="card">
-                <div class="card-header">Form</div>
-                <div class="card-body">
-                    <form action="{{ route('products.store') }}" method="post">
-                        @csrf
-                        <div class="form-group">
-                            <label for="">Type</label>
-                            <input type="text" class="form-control" name="type" value="{{ old('type') }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Price</label>
-                            <input type="text" class="form-control" name="price" value="{{ old('price') }}">
-                        </div>
-                        <button class="btn btn-primary">Simpan</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Data Table</div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table">
-                            <?php $no = 1?>
-                            <tr>
-                                <td>No.</td>
-                                <td>Type</td>
-                                <td>Price</td>
-                                <td>Brand ID</td>
-                                <td>Is Ready</td>
-                                <td>Color</td>
-                                <td>OS</td>
-                                <td>Processor</td>
-                                <td>Graphics</td>
-                                <td>Display</td>
-                                <td>Memory</td>
-                                <td>Storage</td>
-                                <td>Image</td>
-                                <td>Aksi</td>
-                            </tr>
-                            @foreach ($products as $product)
-                            <tr>
-                                <td>{{ $no++ }}</td>
-                                <td>{{ $product->type }}</td>
-                                <td>Rp. {{ number_format($product->price) }}</td>
-                                <td>{{ $product->brand_id }}</td>
-                                <td>{{ $product->is_ready }}</td>
-                                <td>{{ $product->color }}</td>
-                                <td>{{ $product->os }}</td>
-                                <td>{{ $product->processor }}</td>
-                                <td>{{ $product->graphics }}</td>
-                                <td>{{ $product->display }}</td>
-                                <td>{{ $product->memory }}</td>
-                                <td>{{ $product->storage }}</td>
-                                <td><img src="{{ url('assets/laptop') }}/{{ $product->image }}" class="img-fluid" width="60"></td>
-                                <td>
-                                    <form action="{{ route('products.destroy', $product->id) }}" method="post">
-                                        <a href="{{ route('products.edit', $product->id) }}">
-                                            <button type="button" class="btn btn-warning"> Ubah </button>
-                                        </a>	
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-danger" type="submit" >Hapus</button>
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach
+                        <table class="table" style="border-collapse:collapse;">
+                            <caption>List of Products</caption>
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>No</th>
+                                    <th width="350">Type</th>
+                                    <th>Price</th>
+                                    <th>Brand</th>
+                                    <th>Stock</th>
+                                    <th width="200px">Action</th>
+                                </tr>
+                            </thead>
+                           <tbody>
+                               <?php $no = 1?>
+                                @foreach ($products as $no => $product)
+                                <tr data-toggle="collapse" data-target="#data{{ $products->firstItem() + $no }}" class="accordion-toggle"> <!--class="accordion-toggle"-->
+                                    <td>{{ $products->firstItem() + $no }}</td>
+                                    <td>{{ $product->type }}</td>
+                                    <td>Rp. {{ number_format($product->price) }}</td>
+                                    <td><img src="{{ url('assets\brand') }}/{{ $product->brand['logo'] }}" class="img-fluid" width=70></td>
+                                    <td>
+                                        @if($product->is_ready == 1)
+                                            <span class="badge badge-success"><i class="fas fa-check"></i> Ready Stock</span>
+                                        @else
+                                            <span class="badge badge-danger"><i class="fas fa-times"></i> Not Ready</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <form action="{{ route('products.destroy', $product->id) }}" method="post">
+                                            <a href="{{ route('products.edit', $product->id) }}">
+                                                <button type="button" class="btn btn-primary"> Ubah </button>
+                                            </a>	
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger" type="submit" >Hapus</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" class="hiddenRow">
+                                        <div class="accordian-body collapse p-4" id="data{{ $products->firstItem() + $no }}">
+                                            <div class="row">
+                                                <div class="col-md-7">
+                                                    <table>
+                                                        <tr>
+                                                            <th>Color</th>
+                                                            <td>:</td>
+                                                            <td>{{ $product->color }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Operating Sistem</th>
+                                                            <td>:</td>
+                                                            <td>{{ $product->os }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Processor</th>
+                                                            <td>:</td>
+                                                            <td>{{ $product->processor }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Graphics</th>
+                                                            <td>:</td>
+                                                            <td>{{ $product->graphics }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Display</th>
+                                                            <td>:</td>
+                                                            <td>{{ $product->display }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Memory</th>
+                                                            <td>:</td>
+                                                            <td>{{ $product->memory }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Storage</th>
+                                                            <td>:</td>
+                                                            <td>{{ $product->storage }}</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <img src="{{ url('assets/laptop') }}/{{ $product->image }}" class="img-fluid" width="320">
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    </td> 
+                                </tr>
+                                @endforeach
+                           </tbody>
                         </table>
+                        {{ $products->links('layouts/pagination') }}
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <br>
 </div>
 @endsection
