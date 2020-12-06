@@ -24,12 +24,12 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <td>No.</td>
-                            <td>Tanggal Pesanan</td>
-                            <td>Kode Pemesanan</td>
-                            <td>Pesanan</td>
-                            <td>Status</td>
-                            <td><strong>Total Price</strong></td>
+                            <th>No.</th>
+                            <th>Tanggal Pesanan</th>
+                            <th>Kode Pemesanan</th>
+                            <th>Pesanan</th>
+                            <th>Status</th>
+                            <th><strong>Total Price</strong></th>
                         </tr>
                     </thead>
                     <tbody>
