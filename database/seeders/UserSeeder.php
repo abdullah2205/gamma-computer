@@ -17,15 +17,17 @@ class UserSeeder extends Seeder
         $admin = User::create([
             'name' => 'Admin',
             'email' => 'admin@gamma.computer.com',
+            'email_verified_at' => '2020-12-12 00:00:00',
             'password' => bcrypt('admingamma'),
         ]);
         $admin->assignRole('admin');
 
-        // $user = User::create([
-        //     'name' => 'User Gamma',
-        //     'email' => 'user@gamma.computer.com',
-        //     'password' => bcrypt('user1234'),
-        // ]);
-        // $user->assignRole('user');
+        $user = User::create([
+            'name' => 'User',
+            'email' => 'user@gamma.computer.com',
+            'email_verified_at' => '2020-12-12 00:00:00',
+            'password' => bcrypt('user1234'),
+        ]);
+        $user->assignRole('user');
     }
 }

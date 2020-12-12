@@ -22,11 +22,9 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-header">
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addModal">
-                            Add Product
-                        </button>
-                    </div>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addModal">
+                        Add Product
+                    </button>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
