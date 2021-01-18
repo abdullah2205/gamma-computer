@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Brand;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -15,6 +16,7 @@ class ProductController extends Controller
     public function index()
     {
         $data['products'] = Product::paginate(10);
+        $data['brands'] = Brand::all();
         return view('admin/product', $data);
     }
 
@@ -36,8 +38,9 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->hasFile('image'));
         $request->validate([
-            'type' => 'required',
+            'type' => 'required', //dari name form
             'price' => 'required',
             'brand_id' => 'required',
             'is_ready' => 'required',
@@ -48,11 +51,32 @@ class ProductController extends Controller
             'display' => 'required',
             'memory' => 'required',
             'storage' => 'required',
-            'image' => 'required'
+            'image' => 'mimes:jpeg,png,jpg',
         ],
         ['required' => ':attribute harus diisi']);
 
-        Product::create($request->all());
+        //Product::create($request->all());
+        $gambar = $request->file('image');
+        
+        // $nama_gambar = $gambar->getClientOriginalName();
+        $nama_gambar = $gambar->hashName();
+
+        $gambar->store('public/laptop'); //menyimpan gambar ke storage
+
+        Product::create([
+            'type' => $request->type, 
+            'price' => $request->price, 
+            'brand_id' => $request->brand_id, 
+            'is_ready' => $request->is_ready, 
+            'color' => $request->color, 
+            'os' => $request->os, 
+            'processor' => $request->processor, 
+            'graphics' => $request->graphics, 
+            'display' => $request->display, 
+            'memory' => $request->memory, 
+            'storage' => $request->storage, 
+            'image' => $nama_gambar
+        ]);
 
         return redirect()->route('products.index')->with('success', 'Data Product tersimpan');
     }
@@ -77,6 +101,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $data['product'] = Product::find($id);
+        $data['brands'] = Brand::all();
         return view('admin/edit', $data);
     }
 
@@ -89,7 +114,28 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data['product'] = Product::find($id);
+
+        //dd($data['product']);
+        $request->validate([
+            'type' => 'required', //dari name form
+            'price' => 'required',
+            'brand_id' => 'required',
+            'is_ready' => 'required',
+            'color' => 'required',
+            'os' => 'required',
+            'processor' => 'required',
+            'graphics' => 'required',
+            'display' => 'required',
+            'memory' => 'required',
+            'storage' => 'required',
+            'image' => 'required'
+        ],
+        ['required' => ':attribute harus diisi']);
+
+        $data['product']->update($request->all());
+
+        return redirect()->route('products.index')->with('success', 'Data Product terubah');
     }
 
     /**

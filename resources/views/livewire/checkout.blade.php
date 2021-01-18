@@ -30,7 +30,7 @@
             <hr>
             <p>Untuk pembayaran pemesanan silahkan Transfer di Rekening dibawah ini sebesar : <strong>Rp. {{ number_format($total_harga)}} </strong></p>
             <div class="media">
-                <img class="mr-3" src="{{ url('assets/bri.png') }}" alt="Bank BRI" width="60">
+                <img class="mr-3" src="{{ url('storage/bri.png') }}" alt="Bank BRI" width="60">
                 <div class="media-body">
                     <h5 class="mt-0">BANK BRI</h5>
                     No. Rekening xxxxxx-xxx-xxx atas nama <strong>Muhammad Abdullah</strong>
