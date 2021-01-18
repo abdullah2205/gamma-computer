@@ -23,7 +23,7 @@
         <div class="col-md-6">
             <div class="card gambar-product border-secondary">
                 <div class="card-body">
-                    <img src="{{ url('assets/laptop') }}/{{ $product->image }}" class="img-fluid">
+                    <img src="{{ url('storage/laptop') }}/{{ $product->image }}" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
                                 <td> Brand </td>
                                 <td>:</td>
                                 <td>
-                                    <img src="{{ url('assets\brand') }}/{{ $product->brand['logo'] }}" class="img-fluid" width=60>
+                                    <img src="{{ url('storage\brand') }}/{{ $product->brand['logo'] }}" class="img-fluid" width=60>
                                 </td>
                             </tr>
                             <tr>

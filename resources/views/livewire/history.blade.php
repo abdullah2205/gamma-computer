@@ -47,7 +47,7 @@
                                 <td>
                                     <?php $pesanan_details = \App\Models\PesananDetail::where('pesanan_id', $pesanan->id)->get(); ?>
                                     @foreach ($pesanan_details as $pesanan_detail)
-                                        <img src="{{ url('assets/laptop') }}/{{ $pesanan_detail->product->image }}" class="img-fluid" width="50">
+                                        <img src="{{ url('storage/laptop') }}/{{ $pesanan_detail->product->image }}" class="img-fluid" width="50">
                                         {{ $pesanan_detail->product->type }}
                                         <br>
                                     @endforeach
@@ -83,7 +83,7 @@
                     <div class="card-body">
                         <p>Untuk pembayaran pemesanan Transfer di Rekening dibawah ini : </p>
                         <div class="media">
-                            <img class="mr-3" src="{{ url('assets/bri.png') }}" alt="Bank BRI" width="60">
+                            <img class="mr-3" src="{{ url('storage/bri.png') }}" alt="Bank BRI" width="60">
                             <div class="media-body">
                                 <h5 class="mt-0">BANK BRI</h5>
                                 No. Rekening xxxxxx-xxx-xxx atas nama <strong>Muhammad Abdullah</strong>

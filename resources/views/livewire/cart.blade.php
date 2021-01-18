@@ -39,7 +39,7 @@
                             <tr>
                                 <td>{{ $no++ }}</td>
                                 <td>
-                                    <img src="{{ url('assets/laptop') }}/{{ $pesanan_detail->product['image'] }}" class="img-fluid">
+                                    <img src="{{ url('storage/laptop') }}/{{ $pesanan_detail->product['image'] }}" class="img-fluid">
                                 </td>
                                 <td>{{ $pesanan_detail->product['type'] }}</td>
                                 <td> Rp. {{ number_format($pesanan_detail->product['price']) }}</td>
