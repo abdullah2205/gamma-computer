@@ -1,7 +1,7 @@
 @extends('admin.app') <!-- harus di extends dulu gaes -->
 
 @section('content')
-<div class="container pt-3 pb-3">
+<div class="container pb-3">
     @if (count($errors))
         <div class="alert alert-danger">
             <ul class="mb-0">
@@ -58,8 +58,7 @@
                                         </td>
                                         <td>
                                             <form action="{{ route('products.destroy', $product->id) }}" method="post">
-                                                <!--<button type="button" class="btn btn-primary" id="edit-item">Ubah</button>-->
-                                                <a href="{{ route('products.edit', $product->id) }}" class="">
+                                                <a href="{{ route('products.edit', $product->id) }}" style="text-decoration: none">
                                                     <button type="button" class="btn btn-primary">
                                                         <i class="fas fa-edit"></i> Edit
                                                     </button>
@@ -147,7 +146,7 @@
             <form action="{{ route('products.store') }}" method="post" enctype="multipart/form-data">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Tambah Product</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Add Product</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

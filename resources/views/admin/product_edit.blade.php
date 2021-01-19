@@ -129,7 +129,7 @@
                             <input type="text" class="form-control" name="storage" value="{{ $product->storage }}">
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3" style="display:none">
                         <div class="form-group">
                             <label for="">Image</label>
                             <input type="text" class="form-control" name="image" value="{{ $product->image }}">

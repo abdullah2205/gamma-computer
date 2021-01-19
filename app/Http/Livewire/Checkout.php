@@ -49,9 +49,9 @@ class Checkout extends Component
         $pesanan->status = 1;
         $pesanan->update();
 
-        $this->emit('inCart');
-
         Mail::to("ma22052000@gmail.com")->send(new CheckoutNotification());// ini
+        
+        $this->emit('inCart');
 
         session()->flash('message', "Checkout Success");
 

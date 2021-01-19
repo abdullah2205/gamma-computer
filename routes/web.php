@@ -31,3 +31,4 @@ Route::middleware('role:admin')
     ->name('dashboard');
 
 Route::middleware('role:admin')->resource('dashboard/products', 'ProductController'); //route products untuk admin
+Route::middleware('role:admin')->resource('dashboard/brands', 'BrandController'); //route brands untuk admin

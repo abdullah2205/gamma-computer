@@ -19,6 +19,9 @@
                         <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">Dashboard</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link {{ Request::is('dashboard/brands') ? 'active' : '' }}" href="{{ route('brands.index') }}">Brands</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link {{ Request::is('dashboard/products') ? 'active' : '' }}" href="{{ route('products.index') }}">Products</a>
                     </li>
                 </ul>

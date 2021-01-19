@@ -4,8 +4,8 @@
         <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
                 <div class="view">
-                    <img class="d-block w-100 slide" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
-                    alt="First slide">
+                    <img class="d-block w-100 slide" src="{{ url('storage\slider\slider1.png') }}"
+                    style="height: 450px">
                     <div class="mask rgba-black-light"></div>
                 </div>
                 <div class="carousel-caption">
@@ -16,24 +16,30 @@
             </div>
             <div class="carousel-item">
                 <div class="view">
-                    <img class="d-block w-100 slide" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg"
-                    alt="Second slide">
+                    <img class="d-block w-100 slide" src="{{ url('storage\slider\asus.jpeg') }}"
+                    style="height: 450px">
                     <div class="mask rgba-black-strong"></div>
-                </div>
-                <div class="carousel-caption">
-                    <h3 class="h3-responsive">Strong mask</h3>
-                    <p>Secondary text</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="view">
-                    <img class="d-block w-100 slide" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg"
-                    alt="Third slide">
+                    <img class="d-block w-100 slide" src="{{ url('storage\slider\msi.jpg') }}"
+                    style="height: 450px">
                     <div class="mask rgba-black-slight"></div>
                 </div>
-                <div class="carousel-caption">
-                    <h3 class="h3-responsive">Slight mask</h3>
-                    <p>Third text</p>
+            </div>
+            <div class="carousel-item">
+                <div class="view">
+                    <img class="d-block w-100 slide" src="{{ url('storage\slider\lenovo.jpeg') }}"
+                    tyle="height: 450px">
+                    <div class="mask rgba-black-slight"></div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="view">
+                    <img class="d-block w-100 slide" src="{{ url('storage\slider\acer.jpg') }}"
+                    tyle="height: 450px">
+                    <div class="mask rgba-black-slight"></div>
                 </div>
             </div>
         </div>
@@ -67,7 +73,7 @@
     <section class="products mt-5">
         <h3>
             <strong>Best Laptop</strong>
-            <a href="{{ route('products') }}" class="btn btn-success float-right"><i class="fas fa-eye"></i> Lihat Semua </a>
+            <a href="{{ route('products') }}" class="btn btn-success float-right"><i class="fas fa-eye"></i> All Product </a>
         </h3>
         <div class="row mt-4">
             @foreach($products as $product)

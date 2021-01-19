@@ -102,7 +102,7 @@ class ProductController extends Controller
     {
         $data['product'] = Product::find($id);
         $data['brands'] = Brand::all();
-        return view('admin/edit', $data);
+        return view('admin/product_edit', $data);
     }
 
     /**
