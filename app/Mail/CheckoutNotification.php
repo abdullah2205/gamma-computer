@@ -1,6 +1,7 @@
 <?php
  
-namespace App\Mail;
+ namespace App\Mail; //import
+ use Illuminate\Support\Facades\Auth; // import dulu gaes
  
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
@@ -33,7 +34,9 @@ class CheckoutNotification extends Mailable
                    ->view('emailku')
                    ->with(
                     [
-                        'nama' => 'asu',
+                        'admin' => 'Admin',
+                        'name' => Auth::user()->name,
+                        'email' => Auth::user()->email,
                     ]);
     }
 }

@@ -51,7 +51,7 @@ class ProductController extends Controller
             'display' => 'required',
             'memory' => 'required',
             'storage' => 'required',
-            'image' => 'mimes:jpeg,png,jpg',
+            'image' => 'required|mimes:jpeg,png,jpg',
         ],
         ['required' => ':attribute harus diisi']);
 
@@ -146,8 +146,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        $users = Product::find($id);
-        $users->delete();
+        $data = Product::find($id);
+        $data->delete();
 
         return redirect()->route('products.index')->with('success', 'Data Product telah dihapus');
     }

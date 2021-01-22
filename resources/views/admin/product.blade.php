@@ -65,7 +65,7 @@
                                                 </a>
                                                 @csrf
                                                 @method('DELETE')
-                                                <button class="btn btn-danger" type="submit">
+                                                <button class="btn btn-danger" type="submit" onclick="return confirm('Are you sure you want to Delete this Data?')">
                                                     <i class="fas fa-trash-alt"></i> Delete
                                                 </button>
                                             </form>
@@ -111,11 +111,6 @@
                                                                 <th>Storage</th>
                                                                 <td>:</td>
                                                                 <td>{{ $product->storage }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Image</th>
-                                                                <td>:</td>
-                                                                <td>{{ $product->image }}</td>
                                                             </tr>
                                                         </table>
                                                     </div>

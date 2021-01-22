@@ -51,7 +51,7 @@
                                                     
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button class="btn btn-danger" type="submit">
+                                                    <button class="btn btn-danger" type="submit" onclick="return confirm('Are you sure you want to Delete this Data?')">
                                                         <i class="fas fa-trash-alt"></i> Delete
                                                     </button>
                                                 </form>

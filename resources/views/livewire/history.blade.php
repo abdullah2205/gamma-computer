@@ -54,11 +54,9 @@
                                 </td>
                                 <td>
                                     @if($pesanan->status == 1)
-                                        Belum Lunas
+                                        <span class="badge badge-success"><i class="fas fa-check"></i> Checkout</span> 
                                     @elseif($pesanan->status == 2)
-                                        Lunas
-                                    @else
-                                        Dikirim
+                                        <span class="badge badge-primary"><i class="fas fa-truck"></i> Shipping</span>
                                     @endif
                                 </td>
                                 <td><strong>Rp. {{ number_format($pesanan->total_harga+$pesanan->kode_unik) }}</strong></td>

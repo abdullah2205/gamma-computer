@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class BrandController extends Controller
@@ -38,7 +39,7 @@ class BrandController extends Controller
     {
         $request->validate([
             'nama' => 'required',
-            'logo' => 'mimes:jpeg,png,jpg',
+            'logo' => 'required|mimes:jpeg,png,jpg',
         ],
         ['required' => ':attribute harus diisi']);
 
@@ -110,8 +111,16 @@ class BrandController extends Controller
     public function destroy($id)
     {
         $data = Brand::find($id);
-        $data->delete();
-
-        return redirect()->route('brands.index')->with('success', 'Data Product telah dihapus');
+        $id = $data->id;
+        $value = Product::where('brand_id', $id)->get()->count();
+        if($value <= 1)
+        {
+            $data->delete();
+            return redirect()->route('brands.index')->with('success', 'Data Brand telah dihapus');
+        }
+        
+        else{
+            return redirect()->route('brands.index')->with('success', 'Data Brand memiliki relasi Data Product');
+        }
     }
 }
