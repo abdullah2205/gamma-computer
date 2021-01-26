@@ -28,7 +28,7 @@
                         <a class="nav-link {{ Request::is('dashboard/pesanans') ? 'active' : '' }}" href="{{ route('pesanans.index') }}">Pesanan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ Request::is('dashboard/pesanan_details') ? 'active' : '' }}" href="{{ route('pesanan_details.index') }}">Detail Pesanan</a>
+                        <a class="nav-link {{ Request::is('dashboard/pesanan_details') ? 'active' : '' }}" href="{{ route('pesanan_details.index') }}">Pesanan Detail</a>
                     </li>
                 </ul>
 

@@ -16,6 +16,10 @@
         <div class="alert alert-success">
         {{ $msg }}
         </div>
+    @elseif ($msg = Session::get('danger'))
+        <div class="alert alert-danger">
+        {{ $msg }}
+        </div>
     @endif
 
     <div class="row">

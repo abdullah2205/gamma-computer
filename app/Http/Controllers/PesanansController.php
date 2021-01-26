@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Pesanan;
+use App\Models\PesananDetail;
 use Illuminate\Http\Request;
 
 class PesanansController extends Controller
@@ -14,9 +16,8 @@ class PesanansController extends Controller
      */
     public function index()
     {
-        //$data['pesanans'] = Pesanan::paginate(10);
-        
-        $data['users'] = User::rightJoin('pesanans', 'users.id', '=', 'pesanans.user_id')
+        //join 2 table
+        $data['users'] = User::Join('pesanans', 'users.id', '=', 'pesanans.user_id')
                 ->select('users.name','pesanans.*')
                 ->paginate(10);
 
@@ -63,7 +64,8 @@ class PesanansController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['pesanan'] = Pesanan::find($id);
+        return view('admin/pesanan_edit', $data);
     }
 
     /**
@@ -75,7 +77,16 @@ class PesanansController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data['pesanan'] = Pesanan::find($id);
+
+        $request->validate([
+            'status' => 'required'
+        ],
+        ['required' => ':attribute harus diisi']);
+
+        $data['pesanan']->update($request->all());
+
+        return redirect()->route('pesanans.index')->with('success', 'Data Pesanan telah diubah');
     }
 
     /**
@@ -86,6 +97,16 @@ class PesanansController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Pesanan::find($id);
+        $id = $data->id;
+        $value = PesananDetail::where('pesanan_id', $id)->get()->count();
+        if($value < 1 )
+        {
+            $data->delete();
+            return redirect()->route('pesanans.index')->with('success', 'Data Pesanan telah dihapus');
+        }
+        else{
+            return redirect()->route('pesanans.index')->with('danger', 'Data Pesanan memiliki relasi Data Pesanan Detail');
+        }
     }
 }

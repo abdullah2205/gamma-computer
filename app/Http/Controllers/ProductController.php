@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Brand;
+use App\Models\PesananDetail;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -135,7 +136,7 @@ class ProductController extends Controller
 
         $data['product']->update($request->all());
 
-        return redirect()->route('products.index')->with('success', 'Data Product terubah');
+        return redirect()->route('products.index')->with('success', 'Data Product telah diubah');
     }
 
     /**
@@ -147,8 +148,15 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $data = Product::find($id);
-        $data->delete();
-
-        return redirect()->route('products.index')->with('success', 'Data Product telah dihapus');
+        $id = $data->id;
+        $value = PesananDetail::where('product_id', $id)->get()->count();
+        if($value < 1 )
+        {
+            $data->delete();
+            return redirect()->route('products.index')->with('success', 'Data Product telah dihapus');
+        }
+        else{
+            return redirect()->route('products.index')->with('danger', 'Data Product memiliki relasi Data Pesanan Detail');
+        }
     }
 }

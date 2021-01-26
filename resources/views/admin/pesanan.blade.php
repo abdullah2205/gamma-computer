@@ -1,7 +1,16 @@
 @extends('admin.app') <!-- harus di extends dulu gaes -->
 
 @section('content')
-<div class="container pb-3">
+<div class="container pb-3 pt-3">
+    @if ($msg = Session::get('success'))
+        <div class="alert alert-success">
+        {{ $msg }}
+        </div>
+    @elseif ($msg = Session::get('danger'))
+        <div class="alert alert-danger">
+        {{ $msg }}
+        </div>
+    @endif
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -21,8 +30,9 @@
                                     <th>Tanggal Pemesanan</th>
                                     <th>Kode Pemesanan</th>
                                     <th>Status</th>
-                                    <th>Totoal Harga</th>
+                                    <th>Total Harga</th>
                                     <th>Kode Unik</th>
+                                    <th width="200px">Action</th>
                                 </tr>
                             </thead>
                            <tbody>
@@ -45,6 +55,20 @@
                                         </td>
                                         <td class="total_harga">Rp. {{ number_format($user->total_harga) }}</td>
                                         <td class="kode_unik">{{ $user->kode_unik }}</td>
+                                        <td>
+                                            <form action="{{ route('pesanans.destroy', $user->id) }}" method="post">
+                                                <a href="{{ route('pesanans.edit', $user->id) }}" style="text-decoration: none">
+                                                    <button type="button" class="btn btn-primary">
+                                                        <i class="fas fa-edit"></i> Edit
+                                                    </button>
+                                                </a>
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn btn-danger" type="submit" onclick="return confirm('Are you sure you want to Delete this Data?')">
+                                                    <i class="fas fa-trash-alt"></i> Delete
+                                                </button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 @empty
                                     <tr>

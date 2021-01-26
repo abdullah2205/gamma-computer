@@ -76,8 +76,7 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        // $data['brand'] = Brand::find($id);
-        // return view('admin/brand_edit', $data);
+        //
     }
 
     /**
@@ -89,17 +88,7 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $data['brand'] = Brand::find($id);
-
-        // $request->validate([
-        //     'nama' => 'required',
-        //     'logo' => 'required'
-        // ],
-        // ['required' => ':attribute harus diisi']);
-
-        // $data['brand']->update($request->all());
-
-        // return redirect()->route('brands.index')->with('success', 'Data Brand terubah');
+        //
     }
 
     /**
@@ -113,14 +102,14 @@ class BrandController extends Controller
         $data = Brand::find($id);
         $id = $data->id;
         $value = Product::where('brand_id', $id)->get()->count();
-        if($value <= 1)
+        if($value < 1)
         {
             $data->delete();
             return redirect()->route('brands.index')->with('success', 'Data Brand telah dihapus');
         }
         
         else{
-            return redirect()->route('brands.index')->with('success', 'Data Brand memiliki relasi Data Product');
+            return redirect()->route('brands.index')->with('danger', 'Data Brand memiliki relasi Data Product');
         }
     }
 }

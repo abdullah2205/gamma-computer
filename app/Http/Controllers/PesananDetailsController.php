@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use App\Models\PesananDetail;
 use Illuminate\Http\Request;
 
 class PesananDetailsController extends Controller
@@ -13,7 +15,13 @@ class PesananDetailsController extends Controller
      */
     public function index()
     {
-        //
+        //join 3 table
+        $data['products'] = Product::Join('pesanan_details', 'products.id', '=', 'pesanan_details.product_id')
+            ->Join('pesanans', 'pesanan_details.pesanan_id', '=', 'pesanans.id')
+            ->select('products.type','pesanan_details.*', 'pesanans.kode_pemesanan')
+            ->paginate(10);
+
+        return view('admin/pesanan_detail', $data);
     }
 
     /**
@@ -79,6 +87,9 @@ class PesananDetailsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = PesananDetail::find($id);
+        $data->delete();
+
+        return redirect()->route('pesanan_details.index')->with('success', 'Data Pesanan Detail telah dihapus');
     }
 }
