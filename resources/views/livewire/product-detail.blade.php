@@ -23,7 +23,7 @@
         <div class="col-md-6">
             <div class="card gambar-product border-secondary">
                 <div class="card-body">
-                    <img src="{{ url('storage/laptop') }}/{{ $product->image }}" class="img-fluid border-radius">
+                    <img src="{{ url('storage/laptop') }}/{{ $product->image }}" class="img-fluid border-image">
                 </div>
             </div>
         </div>
